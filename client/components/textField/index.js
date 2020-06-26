@@ -2,7 +2,7 @@ import React from 'react';
 import  TextField  from '@material-ui/core/TextField';
 import classes from './style.scss';
 
-const textField = ({id, styleClass, label, variant}) => {
+const textField = ({id, styleClass, label, variant, name, onChange}) => {
   return (
     <TextField 
       id={id}
@@ -11,6 +11,8 @@ const textField = ({id, styleClass, label, variant}) => {
       }}
       label={label}
       variant={variant}
+      name={name}
+      onChange={onChange}
     />
   )
 }

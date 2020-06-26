@@ -1,0 +1,18 @@
+.pageNotFoundContainer {
+  display: flex;
+  height: calc(100vh - 90px);
+  background-color: #f3f3f3; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .notFoundImage {
+    height: 270px;
+  }
+ 
+  .notFoundMessage {
+    font-family: CircularStd;
+    font-size: 22px;
+    margin-top: 20px;
+  }
+}
