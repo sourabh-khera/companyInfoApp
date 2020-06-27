@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const getConfig = (accessToken) => {
   const config = {
     headers: {

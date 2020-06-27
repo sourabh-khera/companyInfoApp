@@ -2,7 +2,7 @@ import React from 'react';
 import  TextField  from '@material-ui/core/TextField';
 import classes from './style.scss';
 
-const textField = ({id, styleClass, label, variant, name, onChange}) => {
+const textField = ({id, styleClass, label, variant, name, type, onChange}) => {
   return (
     <TextField 
       id={id}
@@ -13,6 +13,7 @@ const textField = ({id, styleClass, label, variant, name, onChange}) => {
       variant={variant}
       name={name}
       onChange={onChange}
+      type={type}
     />
   )
 }
@@ -20,6 +21,7 @@ const textField = ({id, styleClass, label, variant, name, onChange}) => {
 textField.defaultProps = {
   variant: 'outlined',
   styleClass: classes.defaultStyle,
+  type: 'text'
 };
 
 export default textField;

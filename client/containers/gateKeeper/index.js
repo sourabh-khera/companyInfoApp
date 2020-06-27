@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { setUserToken } from '../../actions/user_action';
+import { getUserInfo } from '../../actions/asyncActions/user_async';
 import AuthRoutes from '../../routes/auth_routes';
 import UnAuthRoutes from '../../routes/unauth_routes';
 import ApproverRoutes from '../../routes/approver_routes';
@@ -9,10 +11,11 @@ import ApproverRoutes from '../../routes/approver_routes';
 class GateKeeper extends Component {
 	
 	componentDidMount() {
-		const { saveUserAuthToken } = this.props; 
-		const token = localStorage.getItem('mn_reports_token');
+		const { saveUserAuthToken, fetchUserInfo } = this.props; 
+		const token = localStorage.getItem('company_info_user_token');
 		if(token){
 			saveUserAuthToken(token);
+			fetchUserInfo(token);
 		}
 	}
 
@@ -26,9 +29,7 @@ class GateKeeper extends Component {
 				:
 				<AuthRoutes /> ;
 		return (
-			<div>
-				{renderRoutes}
-			</div>
+			renderRoutes
 		);
 	}
 }
@@ -36,6 +37,7 @@ class GateKeeper extends Component {
 GateKeeper.propTypes = {
 	token: PropTypes.string, 
 	saveUserAuthToken: PropTypes.func.isRequired,
+	fetchUserInfo: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({
 	token: state.userReducer.token,
@@ -43,5 +45,6 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
 	saveUserAuthToken: bindActionCreators(setUserToken, dispatch),
+	fetchUserInfo: bindActionCreators(getUserInfo, dispatch),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(GateKeeper);

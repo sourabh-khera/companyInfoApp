@@ -6,4 +6,4 @@ import {
 
 export const setUserToken = token => ({ type: SET_USER_TOKEN, token });
 
-export const saveUserDetails = authDetails => ({ type: SAVE_USER_DETAILS, authDetails }); 
+export const saveUserDetails = data => ({ type: SAVE_USER_DETAILS, data }); 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-
+import { connect } from 'react-redux';
 import TextField from '../../components/textField';
 import Button from '../../components/button';
 import { authenticateUser } from '../../actions/asyncActions/user_async';
@@ -37,9 +37,10 @@ class Login extends Component {
             label='Password'
             id='password'
             name='password'
+            type='password'
             onChange={this.handleOnchange}
           />
-          <Button />
+          <Button onClick={this.handleClick}/>
         </form>
       </div>
     )
@@ -50,4 +51,4 @@ const mapDispatchToProps = dispatch => ({
 	validateUserCredentials: bindActionCreators(authenticateUser, dispatch),
 });
 
-export default conect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);

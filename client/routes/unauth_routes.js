@@ -5,12 +5,10 @@ import PageNotFound from '../components/pagenotfound';
 
 const unauthRoutes = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Login} />
-        <Route render={() => (<PageNotFound />)} />
-      </Switch>
-    </Router>
+    <Switch>
+      <Route exact path="/" component={Login} />
+      <Route render={() => (<PageNotFound />)} />
+    </Switch>
   );
 }
 

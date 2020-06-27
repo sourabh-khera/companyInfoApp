@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PageNotFound from '../../../components/pagenotfound';
+import PageNotFound from '../components/pagenotfound';
 import ContentInsertion from '../containers/contentInsertion';
 
 const authRoutes = () => {

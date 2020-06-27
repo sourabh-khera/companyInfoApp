@@ -4,14 +4,14 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import configureStore from './store';
 
-import App from './App';
+import GateKeeper from './containers/gateKeeper';
 
 const store = configureStore();
 
 const app = (
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <GateKeeper />
     </BrowserRouter>
   </Provider>
 );
