@@ -1,8 +1,10 @@
 import { webApiPost, webApiGet } from '../../utils'; 
 import { saveUserDetails } from '../../actions/user_action';
 
+const baseUrl = 'http://localhost:4000/api/v1/user';
+
 export const authenticateUser = credentials => async dispatch => { 
-	const URL = `http://localhost:4000/api/v1/user/login`;
+	const URL = `${baseUrl}/login`;
 	try { 
     const response = await webApiPost('', URL, JSON.stringify(credentials)).request;
 		const { data: { data }, status } = response;
@@ -16,7 +18,7 @@ export const authenticateUser = credentials => async dispatch => {
 }; 
 
 export const getUserInfo = token => async dispatch => { 
-	const URL = `http://localhost:4000/api/v1/user/info`;
+	const URL = `${baseUrl}/info`;
 	try { 
 		const response = await webApiGet(token, URL).request;
 		const { data: { data }, status } = response;

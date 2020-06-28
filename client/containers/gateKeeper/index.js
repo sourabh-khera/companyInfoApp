@@ -20,9 +20,8 @@ class GateKeeper extends Component {
 	}
 
 	render() {
-		const { token, profileInfo } = this.props;
-		const userCompany = profileInfo && profileInfo.company ? profileInfo.company : '';
-		const renderRoutes = token && profileInfo && profileInfo.role === 'Approver' ? 
+		const { token, userDetails } = this.props;
+		const renderRoutes = token && userDetails && userDetails.role === 'Approver' ? 
 			<ApproverRoutes />
 			: !token ?
 				<UnAuthRoutes />
@@ -41,7 +40,7 @@ GateKeeper.propTypes = {
 };
 const mapStateToProps = state => ({
 	token: state.userReducer.token,
-	profileInfo: state.userReducer.profileInfo,
+	userDetails: state.userReducer.userDetails,
 });
 const mapDispatchToProps = dispatch => ({
 	saveUserAuthToken: bindActionCreators(setUserToken, dispatch),
